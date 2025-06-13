@@ -1,3 +1,4 @@
+// https://github.com/Alexays/Waybar/wiki
 {
     //"layer": "top",
     "position": "top",
@@ -10,6 +11,9 @@
         "format": "",
         "on-click": "swaync-client -t -sw",
         "escape": true
+    },
+    "hyprland/window": {
+        "max-length": 60
     },
     "pulseaudio": {
         "format": "{icon}  {volume}%",
@@ -37,7 +41,8 @@
         "on-click-right": "blueman-manager"
     }, 
     "network": {
-        "format-wifi": "<span size='13000' foreground='#f5e0dc'>  </span>{essid}",
+        "format-wifi": "{icon}  {essid}",
+        "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
         "format-ethernet": "<span size='13000' foreground='#f5e0dc'>🖧</span>",
         "format-disconnected": "<span size='13000' foreground='#f5e0dc'>󰤭  </span>Disconnected",
         "tooltip-format-wifi": "Signal strength: {signalStrength}%",
@@ -57,7 +62,8 @@
         "format-plugged": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
         "format-alt": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {time}",
         "format-full": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {capacity}%",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+        "interval": 1
     },
     "clock": {
         "format": "<span foreground='#f5c2e7'>   </span>{:%a %b %d %T}",
