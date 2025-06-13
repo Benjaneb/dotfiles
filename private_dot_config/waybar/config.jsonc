@@ -4,7 +4,7 @@
     "reload_style_on_change": true,
     "modules-left": ["custom/notification", "tray", "hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "bluetooth", "network", "battery", "clock"],
+    "modules-right": ["pulseaudio", "backlight", "bluetooth", "network", "battery", "clock"],
     "custom/notification": {
         "tooltip": false,
         "format": "",
@@ -19,26 +19,30 @@
         },
         "on-click": "pavucontrol"
     },
+    "backlight": {
+        "format": "󰖨  {}%"
+    },
     "bluetooth": {
         "format-on": "󰂯",
-        "format-off": "BT-off",
+        "format-off": "󰂲",
         "format-disabled": "󰂲",
-        "format-connected-battery": "{device_battery_percentage}% 󰂯",
-        "format-alt": "{device_alias} 󰂯",
+        "format-connected-battery": "󰂯  {device_alias}",
         "format-no-controller": "",
-        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
-        "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
+        "tooltip-format": "{num_connections} connected",
+        "tooltip-format-connected": "{num_connections} connected\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
+        // Toggle bluetooth
+        "on-click": "bluetoothctl show | grep 'Powered:' | grep -q 'yes' && bluetoothctl power off || bluetoothctl power on",
         "on-click-right": "blueman-manager"
     }, 
     "network": {
         "format-wifi": "<span size='13000' foreground='#f5e0dc'>  </span>{essid}",
         "format-ethernet": "<span size='13000' foreground='#f5e0dc'>🖧</span>",
-        "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "<span size='13000' foreground='#f5e0dc'>󰤭  </span>Disconnected",
         "tooltip-format-wifi": "Signal strength: {signalStrength}%",
         "tooltip-format-ethernet": "{ifname} 🖧 ",
+        "interval": 10,
         "on-click": "kitty nmtui"
     },
     "battery": {
@@ -52,13 +56,13 @@
         "format-charging": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
         "format-plugged": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
         "format-alt": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {time}",
-        "format-full": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
-        "format-icons": ["", "", "", "", ""],
-        "tooltip-format": "{time}"
+        "format-full": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {capacity}%",
+        "format-icons": ["", "", "", "", ""]
     },
     "clock": {
         "format": "<span foreground='#f5c2e7'>   </span>{:%a %b %d %T}",
         "tooltip-format": "<tt>{calendar}</tt>",
+        "interval": 1,
         "calendar": {
             "format": {
                 "months":     "<span color='#ffead3'><b>{}</b></span>",

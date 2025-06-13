@@ -83,6 +83,16 @@ button:hover {
     border-bottom: 2px solid @blue;
 }
 
+#backlight {
+    color: @yellow;
+    border-bottom: 2px solid @yellow;
+}
+
+#bluetooth {
+    color: @sapphire;
+    border-bottom: 2px solid @sapphire;
+}
+
 #network {
     color: @yellow;
     border-bottom: 2px solid @yellow;
@@ -100,11 +110,6 @@ button:hover {
 #battery {
     color: @green;
     border-bottom: 2px solid @green;
-}
-
-#bluetooth {
-    color: @sapphire;
-    border-bottom: 2px solid @sapphire;
 }
 
 #clock {
