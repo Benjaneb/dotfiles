@@ -40,7 +40,7 @@ button:hover {
 
 #workspaces button {
     padding: 0 4px;
-    border-top: 2px solid @mauve;
+    border-top: 2px hidden @mauve;
 }
 
 #workspaces button.focused {
