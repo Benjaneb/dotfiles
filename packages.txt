@@ -4,6 +4,8 @@ hyprlock
 hypridle
 hyprshot
 hyprpicker
+xdg-desktop-portal-hyprland
+hyprpolkitagent
 waybar
 wofi
 kitty
