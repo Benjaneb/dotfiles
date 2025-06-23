@@ -12,6 +12,10 @@
         "on-click": "swaync-client -t -sw",
         "escape": true
     },
+    "tray": {
+        "spacing": 10,
+        "show-passive-items": true
+    },
     "hyprland/window": {
         "max-length": 60
     },
