@@ -13,7 +13,7 @@
         "escape": true
     },
     "tray": {
-        "spacing": 8
+        "spacing": 6
     },
     "hyprland/window": {
         "max-length": 60 // Cutoff for window title text
