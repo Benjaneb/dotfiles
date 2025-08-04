@@ -3,8 +3,8 @@
 ################
 
 # See https://wiki.hyprland.org/Configuring/Monitors/
-monitor=HDMI-A-1,preferred,0x360,1
-monitor=,preferred,auto,1
+monitor = HDMI-A-1, preferred, 0x360, 1
+monitor = , preferred, auto, 1
 
 
 ###################
@@ -18,6 +18,7 @@ $terminal = kitty
 $fileManager = dolphin
 $menu = wofi
 $browser = librewolf
+$discord = legcord
 
 
 source = ~/.cache/wal/colors-hyprland
@@ -43,7 +44,8 @@ exec-once = fcitx5
 exec-once = /usr/lib/pam_kwallet_init
 exec-once = otd-daemon
 
-exec-once = legcord
+exec-once = $discord
+exec-once = xrandr --output DP-1 --primary
 
 
 #############################
@@ -69,8 +71,8 @@ env = XDG_MENU_PREFIX,plasma-
 
 # https://wiki.hyprland.org/Configuring/Variables/#general
 general {
-    gaps_in = 5
-    gaps_out = 10
+    gaps_in = 4
+    gaps_out = 8
 
     border_size = 2
 
@@ -84,7 +86,7 @@ general {
     # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
     allow_tearing = false
 
-    layout = dwindle
+    layout = master
 }
 
 # https://wiki.hyprland.org/Configuring/Variables/#decoration
@@ -134,29 +136,27 @@ animations {
 
 # Ref https://wiki.hyprland.org/Configuring/Workspace-Rules/
 # "Smart gaps" / "No gaps when only"
-# uncomment all if you wish to use that.
-# workspace = w[tv1], gapsout:0, gapsin:0
-# workspace = f[1], gapsout:0, gapsin:0
-# windowrulev2 = bordersize 0, floating:0, onworkspace:w[tv1]
-# windowrulev2 = rounding 0, floating:0, onworkspace:w[tv1]
-# windowrulev2 = bordersize 0, floating:0, onworkspace:f[1]
-# windowrulev2 = rounding 0, floating:0, onworkspace:f[1]
+workspace = w[tv1], gapsout:0, gapsin:0
+workspace = f[1], gapsout:0, gapsin:0
+windowrule = bordersize 0, floating:0, onworkspace:w[tv1]
+windowrule = rounding 0, floating:0, onworkspace:w[tv1]
+windowrule = bordersize 0, floating:0, onworkspace:f[1]
+windowrule = rounding 0, floating:0, onworkspace:f[1]
 
-# See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
+# https://wiki.hyprland.org/Configuring/Dwindle-Layout/
 dwindle {
     pseudotile = true # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
     preserve_split = true # You probably want this
 }
 
-# See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
+# https://wiki.hyprland.org/Configuring/Master-Layout/
 master {
-    new_status = master
 }
 
 # https://wiki.hyprland.org/Configuring/Variables/#misc
 misc {
     force_default_wallpaper = -1 # Set to 0 or 1 to disable the anime mascot wallpapers
-    disable_hyprland_logo = true # If true disables the random hyprland logo / anime girl background. :(
+    disable_hyprland_logo = false # If true disables the random hyprland logo / anime girl background. :(
     focus_on_activate = true
 }
 
@@ -186,7 +186,7 @@ input {
 
     follow_mouse = 1
 
-    sensitivity = {{ .data.sensitivity }} # -1.0 - 1.0, 0 means no modification.
+    sensitivity = -0.6 # -1.0 - 1.0, 0 means no modification.
 
     touchpad {
         natural_scroll = true
@@ -202,11 +202,10 @@ gestures {
     workspace_swipe_min_speed_to_force = 0
 }
 
-# Example per-device config
-# See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
+# https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs
 device {
-    name = epic-mouse-v1
-    sensitivity = -0.5
+    name = logitech-mx-master-3-1
+    sensitivity = -0.6
 }
 
 
@@ -214,17 +213,22 @@ device {
 ### WINDOWS AND WORKSPACES ###
 ##############################
 
-# See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
-# See https://wiki.hyprland.org/Configuring/Workspace-Rules/ for workspace rules
-
-# Example windowrule v1
-# windowrule = float, ^(kitty)$
-
-# Example windowrule v2
-# windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
+# https://wiki.hyprland.org/Configuring/Window-Rules/
+# https://wiki.hyprland.org/Configuring/Workspace-Rules/
 
 # Ignore maximize requests from apps. You'll probably like this.
 windowrulev2 = suppressevent maximize, class:.*
 
 # Fix some dragging issues with XWayland
 windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
+
+windowrule = workspace 1, class:$discord
+windowrule = noinitialfocus, class:$discord
+
+# Open fullscreen applications on new empty workspace
+windowrule = workspace empty, fullscreen:1
+
+
+ecosystem {
+    no_update_news = true
+}
