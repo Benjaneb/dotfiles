@@ -49,6 +49,7 @@ alias la="ls -lAh"
 alias lt="ls -lht"
 alias labc="ls -lhap"
 alias pacs="pacman -Qq | wc -l"
+alias open=xdg-open
 
 bindkey "\e[3~" delete-char
 
@@ -56,3 +57,12 @@ PATH=$PATH:/usr/local/bin/seanime
 
 source ~/scripts/key-bindings.zsh
 source ~/scripts/completion.zsh
+
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+[[ ! -r '/home/benjaneb/.opam/opam-init/init.zsh' ]] || source '/home/benjaneb/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+# END opam configuration

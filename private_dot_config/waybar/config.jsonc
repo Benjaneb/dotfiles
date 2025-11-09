@@ -45,12 +45,13 @@
     }, 
     "network": {
         "format-wifi": "{icon}  {essid}",
-        "format-linked": "{icon}  {essid}",
         "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+        "format-linked": "󰖂 ",
         "format-ethernet": "<span size='13000' foreground='#f5e0dc'>🖧</span>",
         "format-disconnected": "<span size='13000' foreground='#f5e0dc'>󰤭  </span>Disconnected",
-        "tooltip-format-wifi": "Signal strength: {signalStrength}%",
-        "tooltip-format-ethernet": "{ifname} 🖧 ",
+        "tooltip-format-wifi": "Signal strength: {signalStrength}%\n{bandwidthDownBits}",
+        "tooltip-format-linked": "{ifname} 󰖂 \n{bandwidthDownBits}",
+        "tooltip-format-ethernet": "{ifname} 🖧\n{bandwidthDownBits}",
         "interval": 10,
         "on-click": "kitty nmtui"
     },
