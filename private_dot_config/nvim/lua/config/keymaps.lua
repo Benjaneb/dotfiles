@@ -6,8 +6,12 @@ local map = vim.keymap.set
 -- Preview typst file
 map('n', '<leader>p', function ()
     local filename = vim.fn.expand('%')
-    local pdf = vim.fn.expand('%:r') .. '.pdf'
-    local noout = '&>/dev/null'
-    os.execute(string.format('typst watch "%s" %s &', filename, noout))
-    os.execute(string.format('xdg-open "%s" %s & disown', pdf, noout))
+    local extension = vim.fn.expand('%:e')
+    if extension == 'typ' then
+        vim.fn.jobstart({ 'typst', 'watch', filename })
+        local pdf = vim.fn.expand('%:r') .. '.pdf'
+        vim.fn.jobstart({ 'xdg-open', pdf })
+    elseif extension == 'tex' then
+        vim.fn.jobstart({ 'latexmk', '-pdf', '-pvc', '-interaction=batchmode', filename })
+    end
 end)
