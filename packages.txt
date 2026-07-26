@@ -7,7 +7,6 @@ hyprpicker
 waybar
 wofi
 kitty
-wlogout
 swaync
 bluez
 bluez-utils
@@ -16,8 +15,18 @@ kvantum
 python-pywal
 blueman
 pavucontrol
+brightnessctl
 chezmoi
 rofimoji
 dolphin
-librewolf
 otf-codenewroman-nerd
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+pipewire
+wireplumber
+pipewire-audio
+pipewire-pulse
+xdg-desktop-portal-hyprland
+tree
+cloc

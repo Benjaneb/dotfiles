@@ -1,4 +1,5 @@
-@import url('../../.cache/wal/colors-waybar.css');
+/* @import url('../../.cache/wal/colors-waybar.css'); */
+
 * {
     all: unset;
     background-image: none;
@@ -8,12 +9,11 @@
 }
 button {
     font-family: 'CodeNewRoman Nerd Font Mono';
-    background-color: alpha(@color9,1);
+    /* background-color: alpha(@color9,1); */
+    background-color: #40d1ad;
     border-radius: 5px;
     background-repeat: no-repeat;
     background-position: center;
-
-
 }
 #lock {
     background-image: image(url("../../.config/wlogout/lock.png"));
@@ -34,7 +34,6 @@ button {
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
 }
 #reboot {
-
     background-image: image(url("../../.config/wlogout/restart.png"));
     margin : 5px 5px 5px 300px;
     padding: 5px;
@@ -43,7 +42,6 @@ button {
 
 #lock:focus {
     margin : 5px 5px 5px 200px;
-
 }
 #shutdown:focus {
     margin : 5px 200px 5px 5px;
@@ -55,7 +53,8 @@ button {
     margin : 5px 5px 5px 200px;
 }
 button:focus{
-    background-color: alpha(@color5,1);
+    /* background-color: alpha(@color5,1); */
+    background-color: #ceeae3;
     color: #000000;
-    background-position:center;
+    background-position: center;
 }

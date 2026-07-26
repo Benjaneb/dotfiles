@@ -88,7 +88,7 @@ ACTIONS.ENCODE = function(d)
 		"-t", d.duration,
 		"-i", d.inpath,
 		"-pix_fmt", "yuv420p",
-		"-crf", "16",
+		"-crf", "24",
 		"-preset", "superfast",
 		utils.join_path(d.indir, "ENCODE_" .. d.channel .. "_" .. d.infile_noext .. "_FROM_" .. d.start_time_hms .. "_TO_" .. d.end_time_hms .. d.ext)
 	}
@@ -114,7 +114,7 @@ ACTIONS.LIST = function(d)
 	print("Δ " .. delta)
 end
 
-ACTION = "COPY"
+ACTION = "ENCODE"
 
 CHANNEL = 1
 
@@ -154,7 +154,8 @@ local function get_data()
 	d.indir = utils.split_path(d.inpath)
 	d.infile = mp.get_property("filename")
 	d.infile_noext = mp.get_property("filename/no-ext")
-	d.ext = mp.get_property("filename"):match("^.+(%..+)$") or ".mp4"
+	--d.ext = mp.get_property("filename"):match("^.+(%..+)$") or ".mp4"
+	d.ext = ".mp4"
 	d.channel = get_current_channel_name()
 	return d
 end

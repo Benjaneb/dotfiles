@@ -8,3 +8,4 @@ local opt = vim.opt
 
 opt.tabstop = 4
 opt.shiftwidth = 4 -- Size of an indent
+opt.clipboard = "unnamedplus"
