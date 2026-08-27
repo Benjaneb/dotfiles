@@ -1,6 +1,6 @@
 local terminal = "kitty"
 local fileManager = "dolphin"
-local menu = "hyprlauncher"--"wofi"
+local menu = "wofi"
 local browser = "librewolf"
 
 local mainMod = "SUPER"
