@@ -2,6 +2,7 @@ hyprland
 hyprpaper
 hyprlock
 hypridle
+hyprshutdown
 hyprshot
 hyprpicker
 waybar
@@ -18,6 +19,7 @@ pavucontrol
 brightnessctl
 chezmoi
 rofimoji
+wtype
 dolphin
 otf-codenewroman-nerd
 noto-fonts
