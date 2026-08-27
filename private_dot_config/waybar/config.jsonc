@@ -3,7 +3,7 @@
     //"layer": "top",
     "position": "top",
     "reload_style_on_change": true,
-    "modules-left": ["custom/notification", "tray", "hyprland/workspaces"],
+    "modules-left": ["custom/notification", "tray", "ext/workspaces"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["pulseaudio", "backlight", "bluetooth", "network", "battery", "clock"],
     "custom/notification": {
@@ -14,6 +14,11 @@
     },
     "tray": {
         "spacing": 6
+    },
+    "ext/workspaces": {
+        "all-outputs": true,
+        "on-click": "activate",
+        "active-only": false
     },
     "hyprland/window": {
         "max-length": 60 // Cutoff for window title text
