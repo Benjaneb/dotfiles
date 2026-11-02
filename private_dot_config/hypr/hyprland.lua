@@ -21,9 +21,6 @@ hl.monitor({
 ---------------------
 
 local terminal = "kitty"
-local fileManager = "dolphin"
-local menu = "wofi"
-local browser = "librewolf"
 local discord = "legcord"
 local transparentApps = terminal .. "|org.kde.dolphin|discord"
 
@@ -32,6 +29,7 @@ local transparentApps = terminal .. "|org.kde.dolphin|discord"
 --------------------------
 
 require("keybinds")
+require("monitors")
 
 -------------------
 ---- AUTOSTART ----
@@ -97,7 +95,7 @@ hl.config({
         shadow = {
             enabled = true,
             range = 15,
-            render_power = 5,
+            render_power = 4,
             color = "rgba(0,0,0,.5)"
         },
         blur = {
@@ -277,7 +275,7 @@ hl.window_rule({
 -- Open fullscreen applications on new empty workspace
 hl.window_rule({
     match = { fullscreen = true },
-    workspace = "empty",
+    workspace = "emptynm",
 })
 hl.window_rule({
     match = { class = transparentApps },

@@ -20,7 +20,13 @@ brightnessctl
 chezmoi
 rofimoji
 wtype
-dolphin
+thunar
+tumbler
+thunar-volman
+thunar-archive-plugin
+gvfs
+libgsf
+nwg-look
 otf-codenewroman-nerd
 noto-fonts
 noto-fonts-cjk
