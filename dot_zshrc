@@ -22,6 +22,8 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+unsetopt LIST_BEEP
+
 git_branch() {
     vcs_info
 	if [ -z $vcs_info_msg_0_ ]; then
@@ -52,8 +54,6 @@ alias pacs="pacman -Qq | wc -l"
 alias open=xdg-open
 
 bindkey "\e[3~" delete-char
-
-PATH=$PATH:/usr/local/bin/seanime
 
 source ~/scripts/key-bindings.zsh
 source ~/scripts/completion.zsh
