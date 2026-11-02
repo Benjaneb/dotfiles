@@ -27,6 +27,7 @@ thunar-archive-plugin
 gvfs
 libgsf
 nwg-look
+nwg-displays
 otf-codenewroman-nerd
 noto-fonts
 noto-fonts-cjk
